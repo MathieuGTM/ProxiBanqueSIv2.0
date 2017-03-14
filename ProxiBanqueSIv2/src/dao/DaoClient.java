@@ -12,125 +12,137 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Scanner;
 import metier.Client;
 
 /**
  *
  * @author adminl
  */
-public class DaoClient {
+public class DaoClient implements IDaoClient {
 
-    public static void InsertClient(Client client, Connection cnx) {
-        String sql = "insert into client values (seq_idclient.nextval,'" + client.getIdClient() + "','"
-                + client.getAdresse() + "'," + client.getCodepostal() + ",'" + client.getVille() + "','" + client.getTelephone() + "',null)";
+	
+	@Override
+    public void insertClient(Client client, Connection cnx) {
+        String sql = "insert into clientbdd values (seqIdClient.nextval,?,?,?,?,?,?)";
                
         try {
-            Statement stat = cnx.createStatement();
-            stat.executeUpdate(sql);
+            PreparedStatement pstat = cnx.prepareStatement(sql);
+            pstat.setString(1, client.getNom());
+            pstat.setString(2, client.getPrenom());
+            pstat.setString(3, client.getEmail());
+            pstat.setString(4, client.getAdresse());
+            pstat.setString(5, client.getVille());
+            pstat.setInt(6, client.getCp());
+            pstat.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+
     }
 
-    public static void UpdateClientNom(Connection cnx, int idClient, String newName) {
+	@Override
+    public void updateClientNom(Connection cnx, String idClient, String newName) {
        
         String sql = "update clientsbdd set nom = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newName);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    
-    public static void UpdateClientPrenom(Connection cnx, int idClient, String newPrenom) {
+	@Override
+    public  void updateClientPrenom(Connection cnx, String idClient, String newPrenom) {
         
         String sql = "update clientsbdd set prenom = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newPrenom);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-    
-    public static void UpdateClientEmail(Connection cnx, int idClient, String newEmail) {
+	
+	@Override
+    public  void updateClientEmail(Connection cnx, String idClient, String newEmail) {
         
         String sql = "update clientsbdd set email = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newEmail);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
     
-    public static void UpdateClientAdresse(Connection cnx, int idClient, String newAdresse) {
+	@Override
+    public  void updateClientAdresse(Connection cnx, String idClient, String newAdresse) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newAdresse);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
     
-    public static void UpdateClientVille(Connection cnx, int idClient, String newVille) {
+	@Override
+    public  void updateClientVille(Connection cnx, String idClient, String newVille) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newVille);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
     
-    
-    public static void UpdateClientCp(Connection cnx, int idClient, String newCp) {
+	@Override
+    public  void updateClientCp(Connection cnx, String idClient, String newCp) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newCp);
-            stat.setInt(2, idClient);
+            stat.setString(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
     
-    
-    public static void DeleteClient(Connection cnx) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Id du client ра supprimer?");
-        int idClient = sc.nextInt();
-        String sql = "delete from client where idclient = ?";
+	
+	
+	
+	@Override
+    public  void deleteClient(Connection cnx, String idClient) {
+        String sql = "delete from clientbdd where idclient = ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
-            stat.setInt(1, idClient);
+            stat.setString(1, idClient);
             stat.execute();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static Collection<Client> SelectALLClient(Connection cnx) {
-        Collection<Client> listClient = new ArrayList<>();
+	@Override
+    public  Collection<Client> selectALLClient(Connection cnx) {
+       /* Collection<Client> listClient = new ArrayList<>();
         try {
             Statement stat = cnx.createStatement();
             String sql = "select * from Client";
@@ -151,11 +163,12 @@ public class DaoClient {
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
-        }
+        }*/
         return listClient;
     }
 
-    public static int SelectIdbyName(Connection cnx) {
+	@Override
+    public  int selectIdbyName(Connection cnx) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Quel client voulez-vous rechercher?");
         String name = sc.nextLine();
@@ -177,7 +190,9 @@ public class DaoClient {
             System.out.println(e.getMessage());
 
         }
-        return idclient;
+        return  idclient;   
     }
+
+	
 }
 
