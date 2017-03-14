@@ -9,6 +9,13 @@ import dao.IDaoClient;
 import metier.Client;
 import metier.Compte;
 
+
+
+/**
+ * La classe ServiceClient implémente l'interface IServiceClient et détaille les méthodes signées dans l'interface
+ * @author adminl
+ */
+
 public class ServiceClient implements IServiceClient {
 
 	

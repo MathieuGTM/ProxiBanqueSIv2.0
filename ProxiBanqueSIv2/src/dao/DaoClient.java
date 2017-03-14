@@ -15,7 +15,7 @@ import java.util.Collection;
 import metier.Client;
 
 /**
- *
+ * La classe DaoClient implémente l'interface IDaoClient et détaille les méthodes signées dans l'interface
  * @author adminl
  */
 public class DaoClient implements IDaoClient {
