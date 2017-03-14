@@ -1,6 +1,8 @@
 package prez;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	IServiceClent servCli = new ServiceClient();
+	
     /**
      * Default constructor. 
      */
@@ -25,16 +29,23 @@ public class ServletAccueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doGet(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		Collection<Client> listeTousClients = new ArrayList<>();
+		Collection<String> listeNomClients = new ArrayList<>();
+		ListeTousClients = servCli.voirTousClients();
+		
+		for (Client c : listeTousClients) {
+			listeNomClients[i] = c.getName();
+		}
+	
+		
 	}
 
 }
