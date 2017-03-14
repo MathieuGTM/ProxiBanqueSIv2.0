@@ -11,14 +11,14 @@ public class Client extends Personne {
 	private int idClient;
 	private Collection<Compte> listeCompte;
 	
-	public Client(String nom, String prenom, String email, String adresse, String ville, int cp, int idClient,
+	public Client(int idClient,String nom, String prenom, String email, String adresse, String ville, int cp, 
 			Collection<Compte> listeCompte) {
 		super(nom, prenom, email, adresse, ville, cp);
 		this.idClient = idClient;
 		this.listeCompte = listeCompte;
 	}
 	
-	public Client(String nom, String prenom, String email, String adresse, String ville, int cp, int idClient) {
+	public Client(int idClient,String nom, String prenom, String email, String adresse, String ville, int cp) {
 		super(nom, prenom, email, adresse, ville, cp);
 		this.idClient = idClient;
 	}

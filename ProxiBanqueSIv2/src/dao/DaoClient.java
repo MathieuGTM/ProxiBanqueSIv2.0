@@ -141,56 +141,48 @@ public class DaoClient implements IDaoClient {
     }
 
 	@Override
-    public  Collection<Client> selectALLClient(Connection cnx) {
-       /* Collection<Client> listClient = new ArrayList<>();
+    public  Collection<Client> selectAllClient(Connection cnx) {
+        Collection<Client> listClient = new ArrayList<>();
         try {
             Statement stat = cnx.createStatement();
-            String sql = "select * from Client";
+            String sql = "select * from Clientbdd";
 
             ResultSet res = stat.executeQuery(sql);
             while (res.next()) {
                 int idclient = res.getInt("idclient");
                 String nom = res.getString("nom");
                 String prenom = res.getString("prenom");
-                String adresse = res.getString("adresse");
-                int codepostal = res.getInt("codepostal");
-                String ville = res.getString("ville");
                 String email = res.getString("email");
+                String adresse = res.getString("adresse");
+                String ville = res.getString("ville");
+                int codepostal = res.getInt("cp");
             
-                Client newClient = new Client(idclient, nom,prenom, adresse, ville, codepostal, ville, email);
+                Client newClient = new Client(idclient, nom, prenom, email, adresse, ville, codepostal);
                 listClient.add(newClient);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
-        }*/
+        }
         return listClient;
     }
 
 	@Override
-    public  int selectIdbyName(Connection cnx) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Quel client voulez-vous rechercher?");
-        String name = sc.nextLine();
-        System.out.println("Nom de la ville du client?");
-        String ville = sc.nextLine();
-        System.out.println("step" + ville + name);
-        int idclient = 0;
+    public  int selectIdbyName(Connection cnx, String name) {
+        int idClient = 0;
         try {
-            String sql = "select idclient from Client where upper(raisonsociale) =upper(?) and upper(ville) = upper(?)";
+            String sql = "select idclient from Clientbdd where upper(name) =upper(?)";
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, name);
-            stat.setString(2, ville);
             ResultSet res = stat.executeQuery();
             while (res.next()) {
-                idclient = res.getInt("idclient");
-
+                idClient = res.getInt("idclient");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
         }
-        return  idclient;   
+        return  idClient;   
     }
 
 	

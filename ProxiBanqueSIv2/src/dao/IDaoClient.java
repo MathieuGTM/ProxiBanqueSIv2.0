@@ -58,13 +58,13 @@ public interface IDaoClient {
 	  * 
 	  * méthode qui affiche la liste de tous les clients
 	  */
-	 public Collection<Client> selectALLClient(Connection cnx);
+	 public Collection<Client> selectAllClient(Connection cnx);
 	 
 	 /**
 	  * 
 	  * méthode qui affiche un client par son ID
 	  */
-	 public int selectIdbyName(Connection cnx) ;
+	 public int selectIdbyName(Connection cnx, String name) ;
 
 	
 
