@@ -7,19 +7,19 @@ public interface IServiceClient {
 
 	public void ajouterClient(Client c);
 	
-	public void supprimerClient(Client c);
+	public void supprimerClientByName(String name);
 	public void supprimerClientById(int id);
 	
-	public void voirClient(Client c);
-	public Client voirClientById(int id);  //type retour void???
+	public void voirClient(String name);
+	public Client voirClientById(int id);  
 	public Collection<Client> voirTousClients();
 	
-	public void modifNom(String n);
-	public void modifPrenom(String p);
-	public void modifEmail(String e);
-	public void modifAdress(String a);
-	public void modifVille(String v);
-	public void modifCp(int cp);
+	public void modifNom(String n, int idClient);
+	public void modifPrenom(String p, int idClient);
+	public void modifEmail(String e, int idClient);
+	public void modifAdress(String a, int idClient);
+	public void modifVille(String v, int idClient);
+	public void modifCp(int cp, int idClient);
 
 	public void virement(Compte compteADebiter, Compte compteACrediter);  // rajouter en entrée les clients ??
 

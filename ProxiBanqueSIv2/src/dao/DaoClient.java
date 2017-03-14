@@ -22,7 +22,7 @@ public class DaoClient implements IDaoClient {
 
 	
 	@Override
-    public void insertClient(Client client, Connection cnx) {
+    public void addClient(Client client, Connection cnx) {
         String sql = "insert into clientbdd values (seqIdClient.nextval,?,?,?,?,?,?)";
                
         try {
@@ -42,13 +42,13 @@ public class DaoClient implements IDaoClient {
     }
 
 	@Override
-    public void updateClientNom(Connection cnx, String idClient, String newName) {
+    public void updateClientNom(Connection cnx, int idClient, String newName) {
        
         String sql = "update clientsbdd set nom = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newName);
-            stat.setString(2, idClient);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -56,13 +56,13 @@ public class DaoClient implements IDaoClient {
     }
 
 	@Override
-    public  void updateClientPrenom(Connection cnx, String idClient, String newPrenom) {
+    public  void updateClientPrenom(Connection cnx, int idClient, String newPrenom) {
         
         String sql = "update clientsbdd set prenom = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newPrenom);
-            stat.setString(2, idClient);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -70,13 +70,13 @@ public class DaoClient implements IDaoClient {
     }
 	
 	@Override
-    public  void updateClientEmail(Connection cnx, String idClient, String newEmail) {
+    public  void updateClientEmail(Connection cnx, int idClient, String newEmail) {
         
         String sql = "update clientsbdd set email = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newEmail);
-            stat.setString(2, idClient);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -84,13 +84,13 @@ public class DaoClient implements IDaoClient {
     }
     
 	@Override
-    public  void updateClientAdresse(Connection cnx, String idClient, String newAdresse) {
+    public  void updateClientAdresse(Connection cnx, int idClient, String newAdresse) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newAdresse);
-            stat.setString(2, idClient);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -98,13 +98,13 @@ public class DaoClient implements IDaoClient {
     }
     
 	@Override
-    public  void updateClientVille(Connection cnx, String idClient, String newVille) {
+    public  void updateClientVille(Connection cnx, int idClient, String newVille) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
             stat.setString(1, newVille);
-            stat.setString(2, idClient);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -112,13 +112,13 @@ public class DaoClient implements IDaoClient {
     }
     
 	@Override
-    public  void updateClientCp(Connection cnx, String idClient, String newCp) {
+    public  void updateClientCp(Connection cnx, int idClient, int newCp) {
         
         String sql = "update clientsbdd set adresse = ?  where idclient= ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
-            stat.setString(1, newCp);
-            stat.setString(2, idClient);
+            stat.setInt(1, newCp);
+            stat.setInt(2, idClient);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -129,16 +129,32 @@ public class DaoClient implements IDaoClient {
 	
 	
 	@Override
-    public  void deleteClient(Connection cnx, String idClient) {
+    public  void deleteClientById(Connection cnx, int idClient) {
         String sql = "delete from clientbdd where idclient = ?";
         try {
             PreparedStatement stat = cnx.prepareStatement(sql);
-            stat.setString(1, idClient);
+            stat.setInt(1, idClient);
             stat.execute();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+	
+	
+
+	@Override
+    public  void deleteClientByName(Connection cnx, String name) {
+        String sql = "delete from clientbdd where name = ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, name);
+            stat.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+	
 
 	@Override
     public  Collection<Client> selectAllClient(Connection cnx) {
@@ -184,6 +200,31 @@ public class DaoClient implements IDaoClient {
         }
         return  idClient;   
     }
+
+	@Override
+	public Client selectClientById(Connection cnx, int idClient) {
+        Client client = null;
+        try {
+            String sql = "select * from Clientbdd where idclient = ?";
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setInt(1, idClient);
+            ResultSet res = stat.executeQuery();
+            while (res.next()) {
+                int idclient = res.getInt("idclient");
+                String nom = res.getString("nom");
+                String prenom = res.getString("prenom");
+                String email = res.getString("email");
+                String adresse = res.getString("adresse");
+                String ville = res.getString("ville");
+                int codepostal = res.getInt("cp");
+                client = new Client(idclient, nom, prenom, email, adresse, ville, codepostal);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+        return  client;
+	}
 
 	
 }

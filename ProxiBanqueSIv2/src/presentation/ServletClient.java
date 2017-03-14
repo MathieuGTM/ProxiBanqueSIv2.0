@@ -51,23 +51,21 @@ public class ServletClient extends HttpServlet {
 	 * puis les modifie selon ce qu'a rentré le conseiller
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idClient = request.getParameter("idClient");
+		int idClient = Integer.parseInt(request.getParameter("idClient"));
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
 		String adresse = request.getParameter("adresse");
 		String ville = request.getParameter("ville");
-		String cp = request.getParameter("cp");
+		int cp = Integer.parseInt(request.getParameter("cp"));
 		
 
 		// on enlève les espaces
-		idClient = idClient.trim();
 		nom= nom.trim();
 		prenom = prenom.trim();
 		email = email.trim();
 		adresse = adresse.trim();
 		ville = ville.trim();
-		cp = cp.trim();
 		
 		// on modifie les données voulues du client
 		if (nom.isEmpty()) {
@@ -105,7 +103,7 @@ public class ServletClient extends HttpServlet {
 			System.out.println("La ville du client a été modifié à : "+ ville);
 		}
 		
-		if (cp.isEmpty()) {
+		if (cp == 0) {
 			System.out.println("\nLe code postal du client n'a pas été modifié.");
 		} else {
 			daoclient.updateClientCp(cnx, idClient, cp);
