@@ -5,21 +5,21 @@ import metier.*;
 
 public interface IServiceClient {
 
-	public void addClient(Client c);
+	public void ajouterClient(Client c);
 	
-	public void removeClient(Client c);
-	public void removeClientById(int id);
+	public void supprimerClient(Client c);
+	public void supprimerClientById(int id);
 	
-	public void getClient(Client c);
-	public Client getClientById(int id);  //type retour void???
-	public Collection<Client> getAllClients();
+	public void voirClient(Client c);
+	public Client voirClientById(int id);  //type retour void???
+	public Collection<Client> voirTousClients();
 	
-	public void updateNom(String n);
-	public void updatePrenom(String p);
-	public void updateEmail(String e);
-	public void updateAdress(String a);
-	public void updateVille(String v);
-	public void updateCp(int cp);
+	public void modifNom(String n);
+	public void modifPrenom(String p);
+	public void modifEmail(String e);
+	public void modifAdress(String a);
+	public void modifVille(String v);
+	public void modifCp(int cp);
 
 	public void virement(Compte compteADebiter, Compte compteACrediter);  // rajouter en entrée les clients ??
 

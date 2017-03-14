@@ -34,31 +34,87 @@ public class DaoClient {
 
     }
 
-    public static void UpdateClient(Connection cnx) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Quelle colonne voulez-vous modifier?");
-        sc.nextLine();
-        String colonne = sc.nextLine();
-        System.out.println("Quel client voulez-vous modifier? (idclient)");
-        int idClient = sc.nextInt();
-        System.out.println("Valeur a mettre a jour?");
-        sc.nextLine();
-        String valeur = sc.nextLine();
-        String sql = "update client set " + colonne + " = ? where idclient=?";
-
+    public static void UpdateClientNom(Connection cnx, int idClient, String newName) {
+       
+        String sql = "update clientsbdd set nom = ?  where idclient= ?";
         try {
-
             PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newName);
             stat.setInt(2, idClient);
-
-            stat.setString(1, valeur);
             stat.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        sc.close();
     }
 
+    
+    public static void UpdateClientPrenom(Connection cnx, int idClient, String newPrenom) {
+        
+        String sql = "update clientsbdd set prenom = ?  where idclient= ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newPrenom);
+            stat.setInt(2, idClient);
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void UpdateClientEmail(Connection cnx, int idClient, String newEmail) {
+        
+        String sql = "update clientsbdd set email = ?  where idclient= ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newEmail);
+            stat.setInt(2, idClient);
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void UpdateClientAdresse(Connection cnx, int idClient, String newAdresse) {
+        
+        String sql = "update clientsbdd set adresse = ?  where idclient= ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newAdresse);
+            stat.setInt(2, idClient);
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void UpdateClientVille(Connection cnx, int idClient, String newVille) {
+        
+        String sql = "update clientsbdd set adresse = ?  where idclient= ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newVille);
+            stat.setInt(2, idClient);
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    public static void UpdateClientCp(Connection cnx, int idClient, String newCp) {
+        
+        String sql = "update clientsbdd set adresse = ?  where idclient= ?";
+        try {
+            PreparedStatement stat = cnx.prepareStatement(sql);
+            stat.setString(1, newCp);
+            stat.setInt(2, idClient);
+            stat.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
     public static void DeleteClient(Connection cnx) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Id du client ра supprimer?");
