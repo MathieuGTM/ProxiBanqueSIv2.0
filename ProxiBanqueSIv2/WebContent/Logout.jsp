@@ -15,9 +15,9 @@
 			<h3 class="text-muted">ProxiBanqueSIv2</h3>
 			<nav>
 			<ul class="nav nav-justified">
-				<li><a href="index.html">Accueil</a></li>
-				<li class="active"><a href="login.jsp">Se déconnecter</a></li>
-				<li><a href="about.html">About us</a></li>
+				<li><a href="AccueilConseiller.jsp">Accueil</a></li>
+				<li class="active"><a href="Logout.jsp">Se déconnecter</a></li>
+				<li><a href="#">About us</a></li>
 			</ul>
 			</nav>
 		</div>
@@ -29,11 +29,16 @@
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Se
 				déconnecter</button>
 		</form>
-		<form class="form-signin">
-			<a href="AccueilConseiller.jsp"><button
-					class="btn btn-lg btn-primary btn-block" type="button">
-					Annuler</button></a>
-		</form>
+		<div class="row">
+			<div
+				class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+				<nav>
+				<ul class="nav nav-justified">
+					<li><a href="AccueilConseiller.jsp">Annuler</a></li>
+				</ul>
+				</nav>
+			</div>
+		</div>
 	</div>
 	<div class="footer">
 		<p>

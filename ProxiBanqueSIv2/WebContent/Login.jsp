@@ -16,8 +16,8 @@
 			<nav>
 			<ul class="nav nav-justified">
 				<li><a href="index.html">Accueil</a></li>
-				<li class="active"><a href="login.jsp">Se connecter</a></li>
-				<li><a href="about.html">About us</a></li>
+				<li class="active"><a href="Login.jsp">Se connecter</a></li>
+				<li><a href="#">About us</a></li>
 			</ul>
 			</nav>
 		</div>
