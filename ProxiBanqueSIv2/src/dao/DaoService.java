@@ -12,7 +12,7 @@ public class DaoService {
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
-			cnx = DriverManager.getConnection("jdbc:MySQL://localhost//ProxiBanqueSIv2", "root", "");
+			cnx = DriverManager.getConnection("jdbc:MySQL://localhost/proxiBanqueSIv2", "root", "");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

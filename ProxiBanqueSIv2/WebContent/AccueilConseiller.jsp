@@ -48,16 +48,16 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-					<select name="client">
+					<select name="selection">
 						<c:forEach var="client" items="${listClient}">
-							<option value="${client.idClient}">${client.idClient}</option>
+							<option value="${client}">${client.nom}</option>
 						</c:forEach>
 					</select>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
 					<nav>
 					<ul class="nav nav-justified">
-						<li><a href="Modifier.jsp">Editer client</a></li>
+						<li><a href="RedirModif">Editer client</a></li>
 						<li><a href="ListComptes.jsp">Lister comptes client</a></li>
 						<li><a href="Virement.jsp">Effectuer un virement</a></li>
 					</ul>

@@ -55,15 +55,15 @@ public class ServletLogin extends HttpServlet {
 		maSession.setAttribute("conseiller", conseiller);
 		
 		Collection<Client> listeTousClients = servClient.voirTousClients();
-		int nbClients = listeTousClients.size();
-		String[] listeNomClients = new String[nbClients];
-		int i=0; //compteur de clients
-		for (Client c : listeTousClients) {
-			listeNomClients[i] = c.getNom();
-			
-			
-			i++;
-		}
+//		int nbClients = listeTousClients.size();
+//		String[] listeNomClients = new String[nbClients];
+//		int i=0; //compteur de clients
+//		for (Client c : listeTousClients) {
+//			listeNomClients[i] = c.getNom();
+//			
+//			
+//			i++;
+//		}
 		
 		
 		maSession.setAttribute("listClient", listeTousClients);

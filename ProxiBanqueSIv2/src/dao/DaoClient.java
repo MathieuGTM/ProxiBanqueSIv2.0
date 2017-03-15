@@ -24,7 +24,7 @@ public class DaoClient implements IDaoClient {
 
 	@Override
 	public void addClient(Client client, Connection cnx) {
-		String sql = "insert into clientsbdd values (seqIdClient.nextval,?,?,?,?,?,?)";
+		String sql = "insert into clientsbdd (nom,prenom,email,adresse,ville,cp) values (?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement pstat = cnx.prepareStatement(sql);

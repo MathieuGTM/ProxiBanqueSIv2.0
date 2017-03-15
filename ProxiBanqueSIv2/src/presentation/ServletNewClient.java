@@ -58,6 +58,10 @@ public class ServletNewClient extends HttpServlet {
 		
 		servClient.ajouterClient(client);
 			
+		
+		Collection<Client> listeTousClients = servClient.voirTousClients();
+		maSession.setAttribute("listClient", listeTousClients);
+	
 		RequestDispatcher dispatcher;
 		dispatcher = request.getRequestDispatcher("ClientCree.jsp");	
 		dispatcher.forward(request, response);

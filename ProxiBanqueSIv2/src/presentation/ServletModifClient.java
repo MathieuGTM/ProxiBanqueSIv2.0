@@ -12,27 +12,30 @@ import javax.servlet.http.HttpSession;
 
 
 import java.sql.Connection;
+import java.util.Collection;
 
 import dao.DaoClient;
 import dao.DaoService;
 import dao.IDaoClient;
+import metier.Client;
+import service.IServiceClient;
+import service.ServiceClient;
 
 /**
  * Servlet implementation class ServletClient
  */
-@WebServlet("/ServletClient")
-public class ServletClient extends HttpServlet {
+@WebServlet("/ModifClient")
+public class ServletModifClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	Connection cnx = DaoService.SeConnecter();
 	IDaoClient daoclient = new DaoClient();
-	
+	IServiceClient servClient = new ServiceClient();
 	
 
     /**
      * Default constructor. 
      */
-    public ServletClient() {
+    public ServletModifClient() {
         // TODO Auto-generated constructor stub
     }
 
@@ -51,7 +54,11 @@ public class ServletClient extends HttpServlet {
 	 * puis les modifie selon ce qu'a rentré le conseiller
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idClient = Integer.parseInt(request.getParameter("idClient"));
+		
+	
+		
+		
+		int idClient = Integer.parseInt(request.getParameter("idcli"));
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
@@ -71,42 +78,42 @@ public class ServletClient extends HttpServlet {
 		if (nom.isEmpty()) {
 			System.out.println("\nLe nom du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientNom(cnx, idClient, nom);
+			daoclient.updateClientNom(DaoService.cnx, idClient, nom);
 			System.out.println("Le nom du client a été modifié à : "+ nom);
 		}
 		
 		if (prenom.isEmpty()) {
 			System.out.println("\nLe prénom du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientPrenom(cnx, idClient, prenom);
+			daoclient.updateClientPrenom(DaoService.cnx, idClient, prenom);
 			System.out.println("Le prénom du client a été modifié à : "+ prenom);
 		}
 		
 		if (email.isEmpty()) {
 			System.out.println("\nL'email du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientEmail(cnx, idClient, email);
+			daoclient.updateClientEmail(DaoService.cnx, idClient, email);
 			System.out.println("L'email du client a été modifié à : "+ email);
 		}
 		
 		if (adresse.isEmpty()) {
 			System.out.println("\nL'adresse du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientAdresse(cnx, idClient, adresse);
+			daoclient.updateClientAdresse(DaoService.cnx, idClient, adresse);
 			System.out.println("L'adresse du client a été modifié à : "+ adresse);
 		}
 		
 		if (ville.isEmpty()) {
 			System.out.println("\nLa ville du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientVille(cnx, idClient, ville);
+			daoclient.updateClientVille(DaoService.cnx, idClient, ville);
 			System.out.println("La ville du client a été modifié à : "+ ville);
 		}
 		
 		if (cp == 0) {
 			System.out.println("\nLe code postal du client n'a pas été modifié.");
 		} else {
-			daoclient.updateClientCp(cnx, idClient, cp);
+			daoclient.updateClientCp(DaoService.cnx, idClient, cp);
 			System.out.println("Le code postal du client a été modifié à : "+ cp);
 		}
 		
