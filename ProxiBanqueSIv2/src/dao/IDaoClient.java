@@ -6,13 +6,15 @@ import java.util.Collection;
 import metier.Client;
 
 /**
- * @author adminl
- *
+ * @author AMM
+ * L'interface IDaoClient signe les méthodes relatives au client de la banque : 
+ * ainsi le conseiller peut : ajouter un client dans la bdd, en supprimer un, le mettre à jour
+ * et afficher les infos du client.
  */
 public interface IDaoClient {
 	
 	/**
-	 * méthode qui créé un client 
+	 * méthode qui créé un client dans la base de données 
 	 *
 	 */
 	 public void addClient(Client client, Connection cnx);
@@ -20,7 +22,7 @@ public interface IDaoClient {
 	 
 	 /**
 	  * 
-	  * méthode qui supprime un client
+	  * méthode qui supprime un client de la bdd
 	  */
 	 public void deleteClientById(Connection cnx, int idClient);
 	 
