@@ -1,7 +1,7 @@
 package presentation;
 
 import java.io.IOException;
-import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-import dao.DaoService;
 import metier.Client;
 import metier.Conseiller;
 import service.IServiceClient;
@@ -18,11 +17,10 @@ import service.ServiceClient;
 /**
  * Servlet implementation class ServletLogin
  */
-@WebServlet("/LoginPage")
-public class ServletLogin extends HttpServlet {
+@WebServlet("/NouveauClient")
+public class ServletNewClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	Connection cnx = DaoService.SeConnecter();
 	IServiceClient servClient = new ServiceClient();
 
 	
@@ -30,7 +28,7 @@ public class ServletLogin extends HttpServlet {
     /**
      * Default constructor. 
      */
-    public ServletLogin() {
+    public ServletNewClient() {
         // TODO Auto-generated constructor stub
     }
 
@@ -47,42 +45,26 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String login=request.getParameter("login");
-		String pwd=request.getParameter("pwd");
+		String nom=request.getParameter("nom");
+		String prenom=request.getParameter("prenom");
+		String email=request.getParameter("email");
+		String adresse=request.getParameter("adresse");
+		String ville=request.getParameter("ville");
+		int cp= Integer.parseInt(request.getParameter("codepostal"));
 		
 		HttpSession maSession = request.getSession();
-		Conseiller conseiller = new Conseiller(login,pwd);
-		maSession.setAttribute("conseiller", conseiller);
+		Client client = new Client(nom, prenom,email, adresse, ville,cp );
+		maSession.setAttribute("client", client);
 		
-		Collection<Client> listeTousClients = servClient.voirTousClients();
-		int nbClients = listeTousClients.size();
-		String[] listeNomClients = new String[nbClients];
-		int i=0; //compteur de clients
-		for (Client c : listeTousClients) {
-			listeNomClients[i] = c.getNom();
+		servClient.ajouterClient(client);
 			
-			
-			i++;
-		}
-		
-		
-		maSession.setAttribute("listClient", listeTousClients);
-		
-		
-		
-		
 		RequestDispatcher dispatcher;
-		
-		if (("tintin".equals(login))&&("milou".equals(pwd))) {			
-			dispatcher = request.getRequestDispatcher("AccueilConseiller.jsp");	
-			
-		} else {
-			dispatcher = request.getRequestDispatcher("Login.jsp");
-			//dispatcher = request.getRequestDispatcher("FailAuthentication.jsp");
-		}
+		dispatcher = request.getRequestDispatcher("ClientCree.jsp");	
 		dispatcher.forward(request, response);
+		}
 		
 		
-	}
+		
+	
 
 }
