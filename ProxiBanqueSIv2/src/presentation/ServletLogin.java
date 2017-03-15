@@ -53,6 +53,7 @@ public class ServletLogin extends HttpServlet {
 		HttpSession maSession = request.getSession();
 		Conseiller conseiller = new Conseiller(login,pwd);
 		maSession.setAttribute("conseiller", conseiller);
+		maSession.setMaxInactiveInterval(60*30);
 		
 		Collection<Client> listeTousClients = servClient.voirTousClients();
 //		int nbClients = listeTousClients.size();

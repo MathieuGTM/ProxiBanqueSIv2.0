@@ -32,11 +32,9 @@ public class RedirModif extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Client	client=(Client) request.getParameter("selection");
+		System.out.println(request.getParameter("selection"));
 		
 		HttpSession maSession = request.getSession();
-		Client client = new Client(nom, prenom,email, adresse, ville,cp );
-		maSession.setAttribute("client", client);
 		RequestDispatcher dispatcher;
 		dispatcher = request.getRequestDispatcher("Modifier.jsp");	
 		dispatcher.forward(request, response);
