@@ -3,6 +3,14 @@ package service;
 import metier.Compte;
 import metier.CompteEpargne;
 
+
+/**
+ * @author AMM
+ * L'interface IDaoCompteEpargne signe les méthodes relatives aux comtpes epargne (CE) des clients de la banque : 
+ * ainsi le conseiller peut : ajouter un CE, supprimer un CE, modifier le taux, modifier le 
+ * solde et afficher un CE .
+ */
+
 public interface IserviceCompteEpargne {
 
 	public void ajouterCompteEpargne(CompteEpargne ce);

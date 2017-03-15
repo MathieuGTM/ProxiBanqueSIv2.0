@@ -5,20 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 import metier.CompteCourant;
 
 /**
- * La classe DaoCompteCourant implémente l'interface IDaoCompteCourant et détaille les
- * méthodes signées dans l'interface
+ * La classe DaoCompteCourant implémente l'interface IDaoCompteCourant et
+ * détaille les méthodes signées dans l'interface
  * 
  * @author AMM
  */
 public class DaoCompteCourant implements IDaoCompteCourant {
 
-	
-	
 	@Override
 	public void insertCompteCourant(CompteCourant comptecourant, Connection cnx) {
 		String sql = "insert into comptesbdd (solde, datecreation) values (?,?)";
@@ -63,23 +59,16 @@ public class DaoCompteCourant implements IDaoCompteCourant {
 		}
 	}
 
-
-@Override
-public  void deleteCompteCourant(Connection cnx, int idCompte) {
-    String sql = "delete from comptesbdd where idcompte= ?";
-    try {
-        PreparedStatement stat = cnx.prepareStatement(sql);
-        stat.setInt(1, idCompte);
-        stat.execute();
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-    }
-}
-
-
-
+	@Override
+	public void deleteCompteCourant(Connection cnx, int idCompte) {
+		String sql = "delete from comptesbdd where idcompte= ?";
+		try {
+			PreparedStatement stat = cnx.prepareStatement(sql);
+			stat.setInt(1, idCompte);
+			stat.execute();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
-
-
-

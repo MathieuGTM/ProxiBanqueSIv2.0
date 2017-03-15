@@ -3,6 +3,14 @@ package service;
 import java.util.Collection;
 import metier.*;
 
+/**
+ * @author AMM
+ * L'interface IServiceClient signe les méthodes relatives au client de la banque : 
+ * ainsi le conseiller peut : ajouter un client dans la bdd, en supprimer un, le mettre à jour
+ * et afficher les infos du client.
+ * Tout ceci via les méthodes de dao.
+ */
+
 public interface IServiceClient {
 
 	public void ajouterClient(Client c);

@@ -22,7 +22,6 @@ public class ServiceCompteCourant implements IserviceCompteCourant {
 	}
 
 
-
 	@Override
 	public void modifDecouvertCompteCourant(int idCompteCourant, double newDecouvert) {
 		daoCompteCourant.updateCompteDecouvert(DaoService.cnx, idCompteCourant, newDecouvert);
