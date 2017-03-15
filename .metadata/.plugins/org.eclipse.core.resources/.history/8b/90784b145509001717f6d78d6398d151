@@ -1,0 +1,29 @@
+html {
+	background-color: #000000;
+	background-image:
+		url(http://www.gullyweb.net/upload/background/background_2_1.jpg);
+}
+
+body {
+	background-image:url(http://www.gullyweb.net/upload/background/background_2_1.jpg);
+	margin: 0 auto;
+}
+
+.middle {
+	position: absolute;
+	text-align: center;
+	background-color: #ebdecf;
+}
+a:hover{
+  background-color: rgba(138,138,138,.5);
+  -webkit-box-shadow: inset 0 3px 7px rgba(138,138,138,.5);
+}
+
+.footer {
+	text-align: center;
+	left: 0;
+	right: 0;
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 40px;
+}

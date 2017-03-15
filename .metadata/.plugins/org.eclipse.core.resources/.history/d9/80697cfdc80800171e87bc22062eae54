@@ -1,0 +1,50 @@
+html {
+	background-color: #dae2f1;
+	background-image:
+		url(http://www.gullyweb.net/upload/background/background_2_1.jpg);
+}
+
+body {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #ebdecf;
+}
+
+.nav {
+	list-style-type: none;
+	margin-bottom: 1em;
+	padding: 0;
+	font-family: verdana, sans-serif;
+	font-weight: bold;
+	width: 1400px;
+	background-color: #bcd8da;
+}
+
+.nav .col-md-6 {
+	float: left;
+	padding: 0;
+	background-color: #79b1b5;
+}
+
+.nav .col-xs-6 {
+	background-color: #9ccdcd;
+	padding: 0;
+}
+
+.nav a {
+	display: block;
+	padding: 0.7em 1em;
+	text-decoration: none;
+	color: #F3F2D4;
+}
+
+.nav a:hover, .nav a:focus {
+	color: #FFF;
+}
+
+.col-xs-12{
+	position:relative;
+	text-align: center;
+	background-color: #ebdecf;
+	
+}
