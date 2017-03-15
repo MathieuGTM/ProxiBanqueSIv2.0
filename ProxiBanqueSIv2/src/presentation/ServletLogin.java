@@ -1,12 +1,18 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+
+import metier.Client;
 import metier.Conseiller;
+import service.IServiceClient;
+import service.ServiceClient;
 
 /**
  * Servlet implementation class ServletLogin
@@ -15,6 +21,10 @@ import metier.Conseiller;
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	IServiceClient servClient = new ServiceClient();
+
+	
+	
     /**
      * Default constructor. 
      */
@@ -39,13 +49,27 @@ public class ServletLogin extends HttpServlet {
 		String pwd=request.getParameter("pwd");
 		
 		HttpSession maSession = request.getSession();
-		Conseiller conseiller = new Conseiller(login,pwd); //TODO Creer une classe internaute ?
+		Conseiller conseiller = new Conseiller(login,pwd);
 		maSession.setAttribute("conseiller", conseiller);
+		
+		Collection<Client> listeTousClients = servClient.voirTousClients();
+		int nbClients = listeTousClients.size();
+		String[] listeNomClients = new String[nbClients];
+		int i=0; //compteur de clients
+		for (Client c : listeTousClients) {
+			listeNomClients[i] = c.getNom();
+			i++;
+		}
+		maSession.setAttribute("listClient", listeNomClients);
+		
+		
+		
+		
 		RequestDispatcher dispatcher;
 		
-		if (("tintin".equals(login))&&("milou".equals(pwd))) {
+		if (("tintin".equals(login))&&("milou".equals(pwd))) {			
 			dispatcher = request.getRequestDispatcher("AccueilConseiller.jsp");	
-			dispatcher.forward(request, response);
+			
 		} else {
 			dispatcher = request.getRequestDispatcher("Login.jsp");
 			//dispatcher = request.getRequestDispatcher("FailAuthentication.jsp");
