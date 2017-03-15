@@ -7,7 +7,7 @@ import dao.IDaoCompteCourant;
 import metier.Compte;
 import metier.CompteCourant;
 
-public class SeviceCompteCourant implements IserviceCompteCourant {
+public class ServiceCompteCourant implements IserviceCompteCourant {
 
 	IDaoCompteCourant daoCompteCourant = new DaoCompteCourant();
 
@@ -55,7 +55,7 @@ public class SeviceCompteCourant implements IserviceCompteCourant {
 		} 
 		
 		else{
-			System.out.println("Impossible d'effectuer le virement, veuillez saisir un antre montant inferieur à "+ soldeCourant1);
+			System.out.println("Impossible d'effectuer le virement, veuillez saisir un autre montant inferieur à "+ soldeCourant1);
 		}
 	}
 
