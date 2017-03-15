@@ -1,5 +1,6 @@
 package presentation;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -58,9 +59,13 @@ public class ServletLogin extends HttpServlet {
 		int i=0; //compteur de clients
 		for (Client c : listeTousClients) {
 			listeNomClients[i] = c.getNom();
+			
+			
 			i++;
 		}
-		maSession.setAttribute("listClient", listeNomClients);
+		
+		
+		maSession.setAttribute("listClient", listeTousClients);
 		
 		
 		
