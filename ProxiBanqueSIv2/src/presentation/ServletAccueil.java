@@ -1,7 +1,8 @@
-package prez;
+package presentation;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.Client;
 import service.*;
 
 /**
@@ -18,7 +20,7 @@ import service.*;
 public class ServletAccueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	IServiceClient servCli = new ServiceClient();
+	IServiceClient servClient = new ServiceClient();
 	
     /**
      * Default constructor. 
@@ -41,10 +43,10 @@ public class ServletAccueil extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Collection<Client> listeTousClients = new ArrayList<>();
 		Collection<String> listeNomClients = new ArrayList<>();
-		ListeTousClients = servCli.voirTousClients();
+		listeTousClients = servCli.voirTousClients();
 		
 		for (Client c : listeTousClients) {
-			listeNomClients[i] = c.getName();
+			//listeNomClients[i] = c.getName();
 		}
 	
 		

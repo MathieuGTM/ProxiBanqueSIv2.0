@@ -1,13 +1,9 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-import dao.DaoClient;
-import dao.DaoService;
-import dao.IDaoClient;
-import metier.Client;
-import metier.Compte;
+import dao.*;
+import metier.*;
 
 
 
