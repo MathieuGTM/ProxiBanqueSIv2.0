@@ -1,5 +1,9 @@
 package metier;
 
+/**
+ * @author adminl
+ * La classe conseiller est présente afin de se connecter sur l'application en tant qu'utilisateur
+ */
 public class Conseiller {
 	
 	private String login, password;
