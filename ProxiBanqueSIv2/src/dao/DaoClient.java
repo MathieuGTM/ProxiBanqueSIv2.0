@@ -127,7 +127,7 @@ public class DaoClient implements IDaoClient {
 
 	@Override
 	public void deleteClientById(Connection cnx, int idClient) {
-		String sql = "delete from clientbdd where idclient = ?";
+		String sql = "delete from clientsbdd where idclient = ?";
 		try {
 			PreparedStatement stat = cnx.prepareStatement(sql);
 			stat.setInt(1, idClient);
@@ -139,7 +139,7 @@ public class DaoClient implements IDaoClient {
 
 	@Override
 	public void deleteClientByName(Connection cnx, String name) {
-		String sql = "delete from clientbdd where name = ?";
+		String sql = "delete from clientsbdd where name = ?";
 		try {
 			PreparedStatement stat = cnx.prepareStatement(sql);
 			stat.setString(1, name);
@@ -154,7 +154,7 @@ public class DaoClient implements IDaoClient {
 		Collection<Client> listClient = new ArrayList<>();
 		try {
 			Statement stat = cnx.createStatement();
-			String sql = "select * from Clientbdd";
+			String sql = "select * from Clientsbdd";
 
 			ResultSet res = stat.executeQuery(sql);
 			while (res.next()) {
@@ -180,7 +180,7 @@ public class DaoClient implements IDaoClient {
 	public int selectIdbyName(Connection cnx, String name) {
 		int idClient = 0;
 		try {
-			String sql = "select idclient from Clientbdd where upper(name) =upper(?)";
+			String sql = "select idclient from Clientsbdd where upper(name) =upper(?)";
 			PreparedStatement stat = cnx.prepareStatement(sql);
 			stat.setString(1, name);
 			ResultSet res = stat.executeQuery();
@@ -198,7 +198,7 @@ public class DaoClient implements IDaoClient {
 	public Client selectClientById(Connection cnx, int idClient) {
 		Client client = null;
 		try {
-			String sql = "select * from Clientbdd where idclient = ?";
+			String sql = "select * from clientsbdd where idclient = ?";
 			PreparedStatement stat = cnx.prepareStatement(sql);
 			stat.setInt(1, idClient);
 			ResultSet res = stat.executeQuery();

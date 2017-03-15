@@ -9,7 +9,7 @@
 <body>
 
 	<p>
-	Le client ${client.nom} a bien été crée. }
+	Le client ${client.nom} a bien été crée.
 	 </p>
 	 
 	<a href="AccueilConseiller.jsp"> Revenir à la page d'accueil </a>
