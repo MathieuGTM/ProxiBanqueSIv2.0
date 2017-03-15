@@ -44,6 +44,8 @@ public class ServletAccueilConseiller extends HttpServlet {
 		String modif = request.getParameter("modifier");
 		String listeCompte = request.getParameter("listeCompte");
 		String virement = request.getParameter("virement");
+		
+		
 
 		
 	}
