@@ -8,8 +8,8 @@ public class CompteEpargne extends Compte{
 
 		private double taux = 0.03;
 
-		public CompteEpargne(int idCompte, double solde, String type, double taux) {
-			super(idCompte, solde, type);
+		public CompteEpargne(int idCompte, double solde,String dateCreation, String type, double taux) {
+			super(idCompte, solde, dateCreation, type);
 			this.taux = taux;
 		}
 

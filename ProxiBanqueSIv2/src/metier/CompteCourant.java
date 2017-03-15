@@ -8,8 +8,8 @@ public class CompteCourant extends Compte {
 	
 	private double decouvert = 1000.0;  // par défaut
 
-	public CompteCourant(int idCompte, double solde, String type, double decouvert) {
-		super(idCompte, solde, type);
+	public CompteCourant(int idCompte, double solde,String dateCreation,  String type, double decouvert) {
+		super(idCompte, solde, dateCreation, type);
 		this.decouvert = decouvert;
 	}
 

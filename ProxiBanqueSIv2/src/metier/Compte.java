@@ -8,9 +8,10 @@ public abstract class Compte {
 	
 	private int idCompte;
 	private double solde;
+	private String dateCreation;
 	private String type;
 	
-	public Compte(int idCompte, double solde, String type) {
+	public Compte(int idCompte, double solde, String dateCreation, String type) {
 		super();
 		this.idCompte = idCompte;
 		this.solde = solde;
@@ -21,6 +22,14 @@ public abstract class Compte {
 		return idCompte;
 	}
 
+
+	public void setDateCreation(String dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+	public String getDateCreation() {
+		return dateCreation;
+	}
 
 	public double getSolde() {
 		return solde;
