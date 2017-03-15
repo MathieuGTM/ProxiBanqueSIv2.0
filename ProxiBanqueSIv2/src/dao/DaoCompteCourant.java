@@ -9,8 +9,16 @@ import java.sql.SQLException;
 
 import metier.CompteCourant;
 
+/**
+ * La classe DaoCompteCourant implémente l'interface IDaoCompteCourant et détaille les
+ * méthodes signées dans l'interface
+ * 
+ * @author AMM
+ */
 public class DaoCompteCourant implements IDaoCompteCourant {
 
+	
+	
 	@Override
 	public void insertCompteCourant(CompteCourant comptecourant, Connection cnx) {
 		String sql = "insert into comptesbdd (solde, datecreation) values (?,?)";
@@ -69,24 +77,6 @@ public  void deleteCompteCourant(Connection cnx, int idCompte) {
 }
 
 
-
-@Override
-public  int selectIdComptebyName(Connection cnx, String name) {
-    int idCompte = 0;
-    try {
-        String sql = "select idcompte from comptesbdd where upper(name) =upper(?)";
-        PreparedStatement stat = cnx.prepareStatement(sql);
-        stat.setString(1, name);
-        ResultSet res = stat.executeQuery();
-        while (res.next()) {
-            idCompte = res.getInt("idcompte");
-        }
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-
-    }
-    return  idCompte;   
-}
 
 
 }
