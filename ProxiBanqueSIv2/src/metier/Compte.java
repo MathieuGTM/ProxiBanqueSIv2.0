@@ -2,26 +2,22 @@ package metier;
 
 /**
  * @author adminl
- * La classe abstraite compte définit les attributs : idCompte, solde et type (courant ou épargne)
+ * La classe abstraite compte définit les attributs :, solde et date de création
  */
 public abstract class Compte {
 	
-	private int idCompte;
 	private double solde;
 	private String dateCreation;
-	private String type;
 	
-	public Compte(int idCompte, double solde, String dateCreation, String type) {
+	
+	public Compte( double solde, String dateCreation) {
 		super();
-		this.idCompte = idCompte;
+		this.dateCreation = dateCreation;
 		this.solde = solde;
-		this.type = type;
+		
 	}
 
-	public int getIdCompte() {
-		return idCompte;
-	}
-
+	
 
 	public void setDateCreation(String dateCreation) {
 		this.dateCreation = dateCreation;
@@ -39,13 +35,6 @@ public abstract class Compte {
 		this.solde = solde;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	
 	
