@@ -86,3 +86,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.server.core 4 0 2017-03-15 09:42:29.054
 !MESSAGE Server Tomcat v8.0 Server at localhost failed to start.
+
+!ENTRY org.eclipse.wst.server.core 4 0 2017-03-15 09:46:35.133
+!MESSAGE Server Tomcat v8.0 Server at localhost failed to start.
