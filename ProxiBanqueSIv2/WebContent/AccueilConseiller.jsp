@@ -19,7 +19,7 @@
 			<ul class="nav nav-justified">
 				<li class="active"><a href="AccueilConseiller.jsp">Accueil</a></li>
 				<li><a href="Logout.jsp">Se déconnecter</a></li>
-				<li><a href="about.html">About us</a></li>
+				<li><a href="#">About us</a></li>
 			</ul>
 			</nav>
 		</div>
