@@ -2,11 +2,15 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import metier.CompteEpargne;
 
+/**
+ * La classe DaoCompteEpargne implémente l'interface IDaoCompteEpargne et détaille les
+ * méthodes signées dans l'interface
+ * 
+ * @author AMM
+ */
 public class DaoCompteEpargne implements IdaoCompteEpargne {
 
 	@Override
@@ -65,22 +69,5 @@ public class DaoCompteEpargne implements IdaoCompteEpargne {
 		}
 	}
 
-	@Override
-	public int selectIdComptebyName(Connection cnx, String name) {
-		int idCompte = 0;
-		try {
-			String sql = "select idcompte from comptesbdd where upper(name) =upper(?)";
-			PreparedStatement stat = cnx.prepareStatement(sql);
-			stat.setString(1, name);
-			ResultSet res = stat.executeQuery();
-			while (res.next()) {
-				idCompte = res.getInt("idcompte");
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
-		}
-		return idCompte;
-	}
 
 }
