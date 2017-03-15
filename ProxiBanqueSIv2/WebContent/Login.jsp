@@ -7,7 +7,6 @@
 <title>Login</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="css/styleIndex.css">
 <link href="css/justified-nav.css" rel="stylesheet">
 </head>
 <body>
@@ -27,14 +26,21 @@
 		<form class="form-signin" method="post" action="LoginPage">
 			<h2 class="form-signin-heading">Veuillez entrer vos identifiants</h2>
 			<label class="sr-only" for="pseudoConseiller">Pseudo
-				Conseiller</label> <input id="pseudoConseiller" name="login" class="form-control"
-				placeholder="Votre pseudo" required="" autofocus="" type="text">
-			<label class="sr-only" for="mdpConseiller">Mot de passe</label> <input
-				id="mdpConseiller" name="pwd" class="form-control" placeholder="Mot de passe"
+				Conseiller</label> <input id="pseudoConseiller" name="login"
+				class="form-control" placeholder="Votre pseudo" required=""
+				autofocus="" type="text"> <label class="sr-only"
+				for="mdpConseiller">Mot de passe</label> <input id="mdpConseiller"
+				name="pwd" class="form-control" placeholder="Mot de passe"
 				required="" autofocus="" type="password">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Se
 				connecter</button>
 		</form>
+	</div>
+	<div class="footer">
+		<p>
+			&copy; Copyright AMM - Tous droits réservés<br /> <a href="#">Nous
+				contacter !</a>
+		</p>
 	</div>
 
 </body>

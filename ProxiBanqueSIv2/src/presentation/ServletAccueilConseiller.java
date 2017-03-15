@@ -14,18 +14,17 @@ import metier.Client;
 import service.*;
 
 /**
- * Servlet implementation class ServletAccueil
+ * Servlet implementation class ServletAccueilConseiller
  */
-@WebServlet("/ServletAccueil")
-public class ServletAccueil extends HttpServlet {
+@WebServlet("/AccueilConseiller")
+public class ServletAccueilConseiller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	IServiceClient servClient = new ServiceClient();
 	
     /**
      * Default constructor. 
      */
-    public ServletAccueil() {
+    public ServletAccueilConseiller() {
         // TODO Auto-generated constructor stub
     }
 
@@ -33,7 +32,7 @@ public class ServletAccueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doPost(request, response);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -41,14 +40,13 @@ public class ServletAccueil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Collection<Client> listeTousClients = new ArrayList<>();
-		Collection<String> listeNomClients = new ArrayList<>();
-		listeTousClients = servCli.voirTousClients();
 		
-		for (Client c : listeTousClients) {
-			//listeNomClients[i] = c.getName();
-		}
-	
+		String modif = request.getParameter("modifier");
+		String listeCompte = request.getParameter("listeCompte");
+		String virement = request.getParameter("virement");
+		
+		
+
 		
 	}
 
