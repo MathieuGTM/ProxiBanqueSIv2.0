@@ -1,17 +1,21 @@
 package service;
 
+import metier.Compte;
 import metier.CompteEpargne;
 
 public interface IserviceCompteEpargne {
 
 	public void ajouterCompteEpargne(CompteEpargne ce);
 
-	void supprimerCompteEpargneById(int id);
+	public void supprimerCompteEpargneById(int id);
 
-	void voirCompteEpargne(String name);
+	public void voirCompteEpargne(String name);
 
-	void modifTauxCompteEpargne(int idCompteEpargne, double newTaux);
+	public void modifTauxCompteEpargne(int idCompteEpargne, double newTaux);
 
-	void modifSoldeCompteEpargne(int idCompteEpargne, double newSolde);
+	public void virement (double montant, Compte comptedebiteur, Compte compteDestinataire  );
+
+
+	public void modifSoldeCompte(int idCompteEpargne, double newSolde);
 
 }

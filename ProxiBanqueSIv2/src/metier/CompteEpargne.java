@@ -7,16 +7,14 @@ package metier;
 public class CompteEpargne extends Compte{
 
 		private double taux = 0.03;
-		public int getIdCompteEpargne() {
-			return idCompteEpargne;
-		}
+		
 
-		private int idCompteEpargne;
+		
 
-		public CompteEpargne(int idCompteEpargne, double solde, String dateCreation, double taux) {
+		public CompteEpargne(int idCompte, double solde, String dateCreation, double taux) {
 			super( solde, dateCreation);
 			this.taux = taux;
-			this.idCompteEpargne = idCompteEpargne;
+	
 		}
 
 		public double getTaux() {

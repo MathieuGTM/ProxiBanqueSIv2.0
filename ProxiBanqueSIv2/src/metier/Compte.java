@@ -8,8 +8,15 @@ public abstract class Compte {
 	
 	private double solde;
 	private String dateCreation;
+	public int idCompte;
 	
 	
+	public int getIdCompte() {
+		return idCompte;
+	}
+
+
+
 	public Compte( double solde, String dateCreation) {
 		super();
 		this.dateCreation = dateCreation;
@@ -36,6 +43,5 @@ public abstract class Compte {
 	}
 
 
-	
 	
 }
