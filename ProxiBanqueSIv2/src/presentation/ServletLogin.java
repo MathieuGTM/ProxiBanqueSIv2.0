@@ -17,6 +17,9 @@ import service.ServiceClient;
 
 /**
  * Servlet implementation class ServletLogin
+ * On utilise cette servlet au niveau du login de l'application. Celle-ci vérifie l'identité de l'utilisateur
+ * On se connecte alors à la BDD et on est redirigé vers une page d'accueil pour le conseiller.
+ * 
  */
 @WebServlet("/LoginPage")
 public class ServletLogin extends HttpServlet {
@@ -74,7 +77,8 @@ public class ServletLogin extends HttpServlet {
 		
 		RequestDispatcher dispatcher;
 		
-		if (("tintin".equals(login))&&("milou".equals(pwd))) {			
+		if (("tintin".equals(login))&&("milou".equals(pwd))) {	
+
 			dispatcher = request.getRequestDispatcher("AccueilConseiller.jsp");	
 			
 		} else {

@@ -16,6 +16,8 @@ import service.ServiceClient;
 
 /**
  * Servlet implementation class ServletLogin
+ * Permet de créer un nouveau client dans la base de données en partant du formulaire de 
+ * l'application.
  */
 @WebServlet("/NouveauClient")
 public class ServletNewClient extends HttpServlet {

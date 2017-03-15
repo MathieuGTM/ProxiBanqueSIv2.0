@@ -14,6 +14,7 @@ import metier.Client;
 
 /**
  * Servlet implementation class RedirModif
+ * Servlet crée dans le but de faire une redirection en prenant une valeur dans une liste déroulante
  */
 @WebServlet("/RedirModif")
 public class RedirModif extends HttpServlet {

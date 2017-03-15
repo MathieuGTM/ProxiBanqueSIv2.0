@@ -23,6 +23,7 @@ import service.ServiceClient;
 
 /**
  * Servlet implementation class ServletClient
+ * Permet la modification des différents attributs d'un client
  */
 @WebServlet("/ModifClient")
 public class ServletModifClient extends HttpServlet {
