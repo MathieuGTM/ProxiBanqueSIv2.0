@@ -9,7 +9,6 @@ public interface IserviceCompteCourant {
 
 	public void supprimerCompteCourantById(int id);
 
-	public void voirCompteCourant(String name);
 
 	public void modifSoldeCompte(int idCompteEpargne, double newSolde);
 

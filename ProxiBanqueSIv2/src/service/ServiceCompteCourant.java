@@ -21,10 +21,7 @@ public class ServiceCompteCourant implements IserviceCompteCourant {
 		daoCompteCourant.deleteCompteCourant(DaoService.cnx, id);
 	}
 
-	@Override
-	public void voirCompteCourant(String name) {
-		daoCompteCourant.selectIdComptebyName(DaoService.cnx, name);
-	}
+
 
 	@Override
 	public void modifDecouvertCompteCourant(int idCompteCourant, double newDecouvert) {

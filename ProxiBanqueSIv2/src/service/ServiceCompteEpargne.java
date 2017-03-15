@@ -20,11 +20,6 @@ public class ServiceCompteEpargne implements IserviceCompteEpargne {
 	}
 
 	@Override
-	public void voirCompteEpargne(String name) {
-		daoCompteEpargne.selectIdComptebyName(DaoService.cnx, name);
-	}
-
-	@Override
 	public void modifTauxCompteEpargne(int idCompteEpargne, double newTaux) {
 		daoCompteEpargne.updateCompteTaux(DaoService.cnx, idCompteEpargne, newTaux);
 	}

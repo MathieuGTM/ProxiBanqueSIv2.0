@@ -9,7 +9,6 @@ public interface IserviceCompteEpargne {
 
 	public void supprimerCompteEpargneById(int id);
 
-	public void voirCompteEpargne(String name);
 
 	public void modifTauxCompteEpargne(int idCompteEpargne, double newTaux);
 
