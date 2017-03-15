@@ -64,6 +64,16 @@
 					</nav>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<nav>
+					<ul class="nav nav-justified">
+						<li><a href="NewClient.jsp">Créer un nouveau client</a></li>
+					</ul>
+					</nav>
+				</div>
+			</div>
 		</div>
+	</div>
 </body>
 </html>
