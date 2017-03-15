@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+import dao.DaoService;
 import metier.Client;
 import metier.Conseiller;
 import service.IServiceClient;
@@ -20,6 +22,7 @@ import service.ServiceClient;
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	Connection cnx = DaoService.SeConnecter();
 	IServiceClient servClient = new ServiceClient();
 
 	
