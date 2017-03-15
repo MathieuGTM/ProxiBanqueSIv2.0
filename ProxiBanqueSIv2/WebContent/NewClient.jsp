@@ -14,7 +14,7 @@
 				Nom : <input type = "text" name="nom"  required="required"/> <br/>
 				Prenom : <input type = "text" name="prenom" required="required"/> <br/>
 				Email: <input type = "email" name="email" required="required"/> <br/>
-				Adresse : <input type = "text" name="adress" required="required"/> <br/>
+				Adresse : <input type = "text" name="adresse" required="required"/> <br/>
 				Ville : <input type = "text" name="ville" required="required"/> <br/>
 				Code Postal : <input type = "text" name="codepostal" required="required"/> <br/>
 				<br/>
